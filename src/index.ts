@@ -20,7 +20,7 @@ client.on('messageCreate', (message: Message) => {
     message.reply(`Here's a random genre: **${genre}**`);
   }
 
-  if (message.content.toLowerCase().startsWith('!randommood')) {
+  if (message.content.toLowerCase().startsWith('!randomvibe')) {
     const mood = getRandom(moods);
     message.reply(`Give me a song with this vibe: **${mood}**`);
   }
