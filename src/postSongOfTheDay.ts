@@ -21,7 +21,7 @@ export async function postSongOfTheDay(client: Client): Promise<void> {
     '🎵 **Song of the Day**',
     '',
     `**Genre:** ${genre}`,
-    `**Mood:** ${mood}`,
+    `**Vibe:** ${mood}`,
     '',
     'Drop a track that fits both. Bonus points if it nails the vibe. 🎶',
   ].join('\n');

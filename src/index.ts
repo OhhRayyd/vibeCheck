@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import { Client, GatewayIntentBits, Message } from 'discord.js';
 import { startScheduler } from './scheduler';
-import { genres, getRandom } from './content';
+import { genres, moods, getRandom } from './content';
 
 const client = new Client({
   intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
@@ -18,6 +18,11 @@ client.on('messageCreate', (message: Message) => {
   if (message.content.toLowerCase().startsWith('!randomgenre')) {
     const genre = getRandom(genres);
     message.reply(`Here's a random genre: **${genre}**`);
+  }
+
+  if (message.content.toLowerCase().startsWith('!randommood')) {
+    const mood = getRandom(moods);
+    message.reply(`Give me a song with this vibe: **${mood}**`);
   }
 });
 
