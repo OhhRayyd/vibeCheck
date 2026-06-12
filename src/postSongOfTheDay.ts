@@ -20,10 +20,9 @@ export async function postSongOfTheDay(client: Client): Promise<void> {
   const message = [
     '🎵 **Song of the Day**',
     '',
-    `**Genre:** ${genre}`,
     `**Vibe:** ${mood}`,
     '',
-    'Drop a track that fits both. Bonus points if it nails the vibe. 🎶',
+    `Genre suggestion: *${genre}* — but the vibe is all that matters. Drop whatever fits. 🎶`,
   ].join('\n');
 
   await channel.send(message);
