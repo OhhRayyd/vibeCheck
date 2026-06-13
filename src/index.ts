@@ -2,6 +2,7 @@ import 'dotenv/config';
 import { Client, GatewayIntentBits, Message } from 'discord.js';
 import { startScheduler } from './scheduler';
 import { genres, moods, getRandom } from './content';
+import { getTrackURLs } from './cross-reference';
 
 const client = new Client({
   intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
@@ -23,6 +24,11 @@ client.on('messageCreate', (message: Message) => {
   if (message.content.toLowerCase().startsWith('!randomvibe')) {
     const mood = getRandom(moods);
     message.reply(`Give me a song with this vibe: **${mood}**`);
+  }
+
+  // if a message is a reply to another message and we have the commend !cr
+  if(message.type === 19 && message.content.toLowerCase().startsWith('!cr')){
+    getTrackURLs(message)
   }
 });
 
