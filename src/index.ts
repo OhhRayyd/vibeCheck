@@ -19,6 +19,22 @@ client.on('messageCreate', (message: Message) => {
     const genre = getRandom(genres);
     message.reply(`Here's a random genre: **${genre}**`);
   }
+
+  if (message.content.toLowerCase().startsWith('!wheel')) {
+    const options = message.content
+      .slice('!wheel'.length)
+      .split(',')
+      .map((option) => option.trim())
+      .filter(Boolean);
+
+    if (options.length < 2) {
+      message.reply('Give me at least 2 options to spin on, separated by commas. Example: `!wheel Valorant, Minecraft, Apex`');
+      return;
+    }
+
+    const choice = getRandom(options);
+    message.reply(`🎡 The wheel landed on: **${choice}**`);
+  }
 });
 
 const token = process.env.DISCORD_TOKEN;
