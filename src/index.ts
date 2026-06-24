@@ -21,6 +21,20 @@ client.on('messageCreate', (message: Message) => {
     message.reply(`Here's a random genre: **${genre}**`);
   }
 
+  if (message.content.toLowerCase().startsWith('!wheel')) {
+    const options = message.content
+      .slice('!wheel'.length)
+      .split(',')
+      .map((option) => option.trim())
+      .filter(Boolean);
+
+    if (options.length < 2) {
+      message.reply('Give me at least 2 options to spin on, separated by commas. Example: `!wheel Valorant, League, Repo`');
+      return;
+    }
+
+    const choice = getRandom(options);
+    message.reply(`🎡 The wheel landed on: **${choice}**`);
   if (message.content.toLowerCase().startsWith('!randomvibe')) {
     const mood = getRandom(moods);
     message.reply(`Give me a song with this vibe: **${mood}**`);
