@@ -35,6 +35,8 @@ client.on('messageCreate', (message: Message) => {
 
     const choice = getRandom(options);
     message.reply(`🎡 The wheel landed on: **${choice}**`);
+  }
+
   if (message.content.toLowerCase().startsWith('!randomvibe')) {
     const mood = getRandom(moods);
     message.reply(`Give me a song with this vibe: **${mood}**`);
