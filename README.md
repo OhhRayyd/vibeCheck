@@ -2,6 +2,11 @@
 
 A Discord bot that posts a **Song of the Day** prompt every morning at 9:00 AM ET. Each post includes a randomly selected genre and mood, inviting your server to share a track that fits both. Posts daily at 8:00 AM ET.
 
+### Commands
+- !randomgenre: Generate a random genre on command
+- !randomvibe: Generate a random vibe on command
+- !cr: When replying to a message with a track URL will generate a message that shows corresponding streaming platform track URLs (does not work for youtube links!)
+
 ---
 
 ## 1. Create the Discord Bot & Get the Token
@@ -40,9 +45,16 @@ Edit `.env`:
 ```env
 DISCORD_TOKEN=your-bot-token-here
 CHANNEL_ID=your-channel-id-here
+BEAT_KEY="api-key-for-bridge-beat"
 ```
 
 ---
+
+### 3.a Digression on Bridge Beat
+[Bridge Beat](https://bridgebeats.link/) is a website was found to assist in converting track URIs from one streaming platform to another so that all users of different platforms can enjoy the experience. This was mainly done because Apple Music doesn't allow people to use their Music APIs for free (boooooooo booo! $99s Boooo! Small indie company so poor boo!). Bridge Beat is free but with a rate limit of 20 requests per hour (YAY! Lovely). They have their own discord bot that does this exact function that you can use if you want. To get an api key go to the website and select register. 
+
+### 3.b Spotify
+Spotify helper was added but is not currently used. If needed .env will need to include two more values for the spotify api client_id and secret
 
 ## 4. Build and Run with Docker
 
