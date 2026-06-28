@@ -1,5 +1,5 @@
 import { Client, TextChannel } from 'discord.js';
-import { genres, moods, getRandom } from './content';
+import { genres, songVibes, getRandom } from './content';
 
 export async function postSongOfTheDay(client: Client): Promise<void> {
   const channelId = process.env.CHANNEL_ID;
@@ -15,7 +15,7 @@ export async function postSongOfTheDay(client: Client): Promise<void> {
   }
 
   const genre = getRandom(genres);
-  const mood = getRandom(moods);
+  const mood = getRandom(songVibes);
 
   const message = [
     '🎵 **Song of the Day**',
